@@ -1,11 +1,15 @@
-{% extends "contacts/base.html" %}
+{% extends 'contacts/base.html' %}
 {% block title %}Delete Contact{% endblock %}
 {% block content %}
-    <h1 class="my-4">Delete Contact</h1>
-    <p>Are you sure you want to delete the contact: {{ contact.name }}?</p>
-    <form method="POST" class="form-group">
-        {% csrf_token %}
-        <button type="submit" class="btn btn-danger">Confirm Delete</button>
-    </form>
-    <a href="{% url 'contact_list' %}" class="btn btn-secondary mt-3">Cancel</a>
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <h1 class="mb-4">Delete Contact</h1>
+        <p>Are you sure you want to delete the contact "{{ contact.name }}"?</p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Delete</button>
+            <a href="{% url 'contact_list' %}" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</div>
 {% endblock %}
